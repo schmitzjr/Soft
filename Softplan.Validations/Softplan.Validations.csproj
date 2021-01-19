@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="9.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Softplan.ViewModels\Softplan.ViewModels.csproj" />
+    <ProjectReference Include="..\Softplan.DTO\Softplan.DTO.csproj" />
+    <ProjectReference Include="..\Softplan.Commons\Softplan.Commons.csproj" />
+  </ItemGroup>
+
+</Project>
