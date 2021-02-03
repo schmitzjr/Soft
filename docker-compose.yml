@@ -1,0 +1,16 @@
+version: "3.8"
+services: 
+  api1:
+    build: "./Softplan.Apis/Softplan.Api1"
+    container_name: softplan-webapi1-container
+    restart: always
+    ports: 
+      - "44555:80"
+  api2:
+    build: "./Softplan.Apis/Softplan.Api2"
+    container_name: softplan-webapi2-container
+    restart: always
+    ports: 
+      - "33444:80"
+    depends_on: 
+      - api1

@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.WebApi2", "Softpla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.Services", "Softplan.Services\Softplan.Services.csproj", "{C9910339-F7B4-4E1E-B1A8-C2CEA96A282E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.Modules", "Softplan.Modules\Softplan.Modules.csproj", "{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.ViewModels", "Softplan.ViewModels\Softplan.ViewModels.csproj", "{BFA29ADE-71B7-41A7-AEFF-CF5EBD404CCE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Softplan.DTO", "Softplan.DTO\Softplan.DTO.csproj", "{2E15225A-2DF7-41E3-A77D-0D0211650239}"
@@ -72,18 +70,6 @@ Global
 		{C9910339-F7B4-4E1E-B1A8-C2CEA96A282E}.Release|x64.Build.0 = Release|Any CPU
 		{C9910339-F7B4-4E1E-B1A8-C2CEA96A282E}.Release|x86.ActiveCfg = Release|Any CPU
 		{C9910339-F7B4-4E1E-B1A8-C2CEA96A282E}.Release|x86.Build.0 = Release|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Debug|x64.Build.0 = Debug|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Debug|x86.Build.0 = Debug|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Release|x64.ActiveCfg = Release|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Release|x64.Build.0 = Release|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Release|x86.ActiveCfg = Release|Any CPU
-		{FE529CDC-3C17-4652-AF67-9EC81DE8E28D}.Release|x86.Build.0 = Release|Any CPU
 		{BFA29ADE-71B7-41A7-AEFF-CF5EBD404CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BFA29ADE-71B7-41A7-AEFF-CF5EBD404CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFA29ADE-71B7-41A7-AEFF-CF5EBD404CCE}.Debug|x64.ActiveCfg = Debug|Any CPU

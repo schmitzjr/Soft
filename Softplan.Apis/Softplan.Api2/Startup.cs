@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using Autofac;
-using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,14 +13,13 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Softplan.Commons;
-using Softplan.Modules;
+using Softplan.Services;
 
 namespace Softplan.WebApi2
 {
   public class Startup
   {
     public IConfiguration _configuration { get; private set; }
-    public ILifetimeScope _autofacContainer { get; private set; }
     private readonly string allowOrigins = "SoftplanAllowOrigins";
     public Startup(IConfiguration configuration)
     {
@@ -42,6 +35,7 @@ namespace Softplan.WebApi2
       services.Configure<Parameters>(_configuration.GetSection("Parameters"));
       services.Configure<Parameters>(_configuration.GetSection("Parameters").GetSection("UrlCode"));
       services.AddMvc();
+      ConfigureContainer(services);
       services.AddControllers();
       services.AddLogging(builder =>
           builder
@@ -84,13 +78,10 @@ namespace Softplan.WebApi2
                   .AllowAnyHeader()
                   .AllowAnyMethod());
       });
-      services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
       ConfigureSwagger(services);
     }
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      this._autofacContainer = app.ApplicationServices.GetAutofacRoot();
-
       if (env.IsDevelopment())
       {
         app.UseDeveloperExceptionPage();
@@ -111,9 +102,15 @@ namespace Softplan.WebApi2
 
       ConfigureSwaggerApp(app);
     }
-    public void ConfigureContainer(ContainerBuilder builder)
+    public void ConfigureContainer(IServiceCollection services)
     {
-      builder.RegisterModule(new ServicesModules());
+      services.AddTransient<IAuthenticationService, AuthenticationService>();
+      services.AddTransient<ICalculaJurosService, CalculaJurosService>();
+      services.AddTransient<ITaxaJurosService, TaxaJurosService>();
+      services.AddTransient<ITokenService, TokenService>();
+      services.AddTransient<IValidationErrorService, ValidationErrorService>();
+      services.AddTransient<IClientConnectionService, ClientConnectionService>();
+      services.AddTransient<IShowMeTheCodeService, ShowMeTheCodeService>();
     }
     private static void ConfigureSwagger(IServiceCollection services)
     {

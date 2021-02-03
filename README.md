@@ -1,5 +1,7 @@
 <div class="Box-body">
-        <article class="markdown-body entry-content p-5" itemprop="text"><p><strong>SoftPlan</strong></p>
+
+<article class="markdown-body entry-content p-5" itemprop="text"><p><strong>SoftPlan</strong></p>
+
 <h1></h1>
           
 <p><strong>Desafio técnico</strong></p>
@@ -53,17 +55,8 @@
 </ul>
 
 <ul>
-<li><strong>Rodar Dockerfile em Softplan.Apis\Softpla.Api1</strong></li>
-<li><code>dotnet publish -c Release -o publish</code></li>
-<li><code>docker build -t softplan-webapi1:v1 .</code></li>
-<li><code>docker run -p 44555:80 softplan-webapi1:v1</code></li>
-</ul>
-
-<ul>
-<li><strong>Rodar Dockerfile em Softplan.Apis\Softpla.Api2</strong></li>
-<li><code>dotnet publish -c Release -o publish</code></li>
-<li><code>docker build -t softplan-webapi2:v1 .</code></li>
-<li><code>docker run -p 33444:80 softplan-webapi2:v1</code></li>
+<li><strong>Na raiz do projeto rodar o arquivo docker-compose.yml com o comando:</strong></li>
+<li><code>docker-compose up -d</code></li>
 </ul>
 
 <ul>
