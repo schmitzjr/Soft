@@ -19,6 +19,8 @@ namespace Softplan.Commons
   {
     public string UrlApi1 { get; set; }
     public string UrlApi2 { get; set; }
+    public string User { get; set; }
+    public string Password { get; set; }
   }
   
 }

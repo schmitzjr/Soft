@@ -22,8 +22,8 @@ namespace Softplan.Services
     {
       var token = await GetToken(new AuthenticateDTO
       {
-        User = "admin",
-        Password = "admin"
+        User = _authSettings.ClientsConnections.User,
+        Password = _authSettings.ClientsConnections.Password
       });
 
       var taxa = new TaxaJurosViewModel();
