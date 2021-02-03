@@ -33,7 +33,8 @@ namespace Softplan.WebApi1
       services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings"));
       services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings").GetSection("SystemPowerUser"));
       services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings").GetSection("ClientsConnections"));
-      services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings").GetSection("Fee"));
+      services.Configure<Parameters>(_configuration.GetSection("Parameters"));
+      services.Configure<Parameters>(_configuration.GetSection("Parameters").GetSection("Fee"));
       services.AddMvc();
       services.AddControllers();
       services.AddLogging(builder =>

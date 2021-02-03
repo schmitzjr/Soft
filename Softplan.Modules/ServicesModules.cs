@@ -1,5 +1,4 @@
-﻿using System;
-using Autofac;
+﻿using Autofac;
 using Softplan.Services;
 
 namespace Softplan.Modules
@@ -14,6 +13,7 @@ namespace Softplan.Modules
       builder.RegisterType<TokenService>().As<ITokenService>();
       builder.RegisterType<ValidationErrorService>().As<IValidationErrorService>();
       builder.RegisterType<ClientConnectionService>().As<IClientConnectionService>();
+      builder.RegisterType<ShowMeTheCodeService>().As<IShowMeTheCodeService>();
     }
   }
 }

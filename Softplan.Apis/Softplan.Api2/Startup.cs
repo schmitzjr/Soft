@@ -39,6 +39,8 @@ namespace Softplan.WebApi2
       services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings"));
       services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings").GetSection("SystemPowerUser"));
       services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings").GetSection("ClientsConnections"));
+      services.Configure<Parameters>(_configuration.GetSection("Parameters"));
+      services.Configure<Parameters>(_configuration.GetSection("Parameters").GetSection("UrlCode"));
       services.AddMvc();
       services.AddControllers();
       services.AddLogging(builder =>

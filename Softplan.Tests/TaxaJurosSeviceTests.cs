@@ -9,16 +9,17 @@ namespace Softplan.Tests
   public class TaxaJurosSeviceTests
   {
     private ITaxaJurosService _sut;
-    private readonly IOptions<AuthSettings> _authSettings = Options.Create<AuthSettings>(new AuthSettings());
+    private readonly IOptions<Parameters> _parameters = Options.Create<Parameters>(new Parameters());
     public TaxaJurosSeviceTests()
     {
-      _sut = new TaxaJurosService(_authSettings);
+      _sut = new TaxaJurosService(_parameters);
     }
     [Fact]
     public void TaxaJuros_ShouldReturnFee()
     {
       //Arrange and Act
-      _authSettings.Value.fee = new Fee{
+      _parameters.Value.Fee = new Fee
+      {
         Value = 0.01M
       };
       var taxaJuros = _sut.RetornaJuros();

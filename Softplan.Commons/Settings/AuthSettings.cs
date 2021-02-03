@@ -6,7 +6,7 @@ namespace Softplan.Commons
     public string PowerUser { get; set; }
     public string PowerPassword { get; set; }
     public ClientsConnections ClientsConnections { get; set; }
-    public Fee fee { get; set; }
+    
   }
   public class AuthJwtToken
   {
@@ -20,8 +20,5 @@ namespace Softplan.Commons
     public string UrlApi1 { get; set; }
     public string UrlApi2 { get; set; }
   }
-  public class Fee
-  {
-    public decimal Value { get; set; }
-  }
+  
 }

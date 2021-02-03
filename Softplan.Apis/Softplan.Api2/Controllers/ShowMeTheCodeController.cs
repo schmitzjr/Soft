@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mime;
-using System.Threading.Tasks;
-using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Softplan.DTO;
 using Softplan.Services;
 using Softplan.ViewModels;
 
@@ -19,12 +13,14 @@ namespace Softplan.Api2.Controllers
   [Route("api/[controller]")]
   public class ShowMeTheCodeController : ControllerBase
   {
-    public ShowMeTheCodeController()
+    private readonly IShowMeTheCodeService _showMeTheCodeServiceService;
+    public ShowMeTheCodeController(IShowMeTheCodeService showMeTheCodeServiceService)
     {
+      _showMeTheCodeServiceService = showMeTheCodeServiceService ?? throw new ArgumentNullException(nameof(showMeTheCodeServiceService));
     }
 
     [Produces(MediaTypeNames.Application.Json)]
-    [ProducesResponseType(typeof(CalculaJurosViewModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ShowMeTheCodeViewModel), StatusCodes.Status200OK)]
     [Authorize]
     [EnableCors("SoftplanAllowOrigins")]
     [HttpGet]
@@ -32,7 +28,8 @@ namespace Softplan.Api2.Controllers
     {
       try
       {
-        return Ok(new { Url = "https://github.com/schmitzjr/soft" });
+        var result = _showMeTheCodeServiceService.RetornaUrl();
+        return Ok(result);
       }
       catch (Exception ex)
       {

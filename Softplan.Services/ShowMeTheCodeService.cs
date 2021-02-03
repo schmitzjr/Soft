@@ -5,21 +5,22 @@ using Softplan.ViewModels;
 
 namespace Softplan.Services
 {
-  public class TaxaJurosService : ITaxaJurosService
+  public class ShowMeTheCodeService : IShowMeTheCodeService
   {
     private readonly Parameters _parameters;
-    public TaxaJurosService(IOptions<Parameters> parameters)
+    public ShowMeTheCodeService(IOptions<Parameters> parameters)
     {
       _parameters = parameters?.Value ?? throw new ArgumentNullException(nameof(parameters));
     }
-    public TaxaJurosViewModel RetornaJuros()
+    public ShowMeTheCodeViewModel RetornaUrl()
     {
       try
       {
-        return new TaxaJurosViewModel
+        var url = new ShowMeTheCodeViewModel()
         {
-          TaxaJuros = _parameters.Fee.Value
+          Url = _parameters.UrlCode.Url
         };
+        return url;
       }
       catch (Exception ex)
       {
