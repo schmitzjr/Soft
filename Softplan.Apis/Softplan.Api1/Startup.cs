@@ -13,7 +13,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
 using Softplan.Modules;
-using Softplan.Commons.Settings;
+using Softplan.Commons;
 
 namespace Softplan.WebApi1
 {
@@ -33,6 +33,7 @@ namespace Softplan.WebApi1
       services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings"));
       services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings").GetSection("SystemPowerUser"));
       services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings").GetSection("ClientsConnections"));
+      services.Configure<AuthSettings>(_configuration.GetSection("AuthSettings").GetSection("Fee"));
       services.AddMvc();
       services.AddControllers();
       services.AddLogging(builder =>

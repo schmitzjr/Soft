@@ -20,13 +20,15 @@ namespace Softplan.Api1.Controllers
     private readonly ILogger<AuthenticateController> _logger;
     private readonly IAuthenticationService _authenticationService;
     private readonly IValidationErrorService _validationErrorService;
-    public AuthenticateController(ILogger<AuthenticateController> logger, IValidationErrorService validationErrorService, IAuthenticationService authenticationService)
+    public AuthenticateController(ILogger<AuthenticateController> logger,
+    IValidationErrorService validationErrorService,
+    IAuthenticationService authenticationService)
     {
-        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-        _validationErrorService = validationErrorService ?? throw new ArgumentNullException(nameof(validationErrorService));
-        _authenticationService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
+      _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+      _validationErrorService = validationErrorService ?? throw new ArgumentNullException(nameof(validationErrorService));
+      _authenticationService = authenticationService ?? throw new ArgumentNullException(nameof(authenticationService));
     }
-    
+
     /// <summary>Autenticação</summary>
     /// <param name="authDTO">Usuario (string), Senha (string)</param>
     /// <response code="200">Operação com sucesso</response>

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mime;
 using System.Threading.Tasks;
 using FluentValidation;
@@ -23,7 +21,9 @@ namespace Softplan.Api2.Controllers
     private readonly ICalculaJurosService _calculaJurosService;
     private readonly IValidationErrorService _validationErrorService;
 
-    public CalculaJurosController(ILogger<CalculaJurosController> logger, IValidationErrorService validationErrorService, ICalculaJurosService calculaJurosService)
+    public CalculaJurosController(ILogger<CalculaJurosController> logger, 
+    IValidationErrorService validationErrorService, 
+    ICalculaJurosService calculaJurosService)
     {
       _logger = logger;
       _validationErrorService = validationErrorService ?? throw new ArgumentNullException(nameof(validationErrorService));

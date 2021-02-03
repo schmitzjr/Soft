@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace Softplan.DTO
 {
     public class CalculaJurosDTO

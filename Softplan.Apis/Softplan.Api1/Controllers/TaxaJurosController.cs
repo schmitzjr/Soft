@@ -21,7 +21,9 @@ namespace Softplan.Api1.Controllers
     private readonly ITaxaJurosService _taxaJurosService;
     private readonly IValidationErrorService _validationErrorService;
 
-    public TaxaJurosController(ILogger<TaxaJurosController> logger, IValidationErrorService validationErrorService, ITaxaJurosService taxaJurosService)
+    public TaxaJurosController(ILogger<TaxaJurosController> logger, 
+    IValidationErrorService validationErrorService, 
+    ITaxaJurosService taxaJurosService)
     {
       _logger = logger;
       _validationErrorService = validationErrorService ?? throw new ArgumentNullException(nameof(validationErrorService));

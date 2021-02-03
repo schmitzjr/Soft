@@ -1,6 +1,5 @@
 using FluentValidation;
-using Softplan.Commons.Criptografy;
-using Softplan.Commons.Settings;
+using Softplan.Commons;
 using Softplan.DTO;
 
 namespace Softplan.Validations

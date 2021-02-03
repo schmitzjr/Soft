@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Softplan.Commons.Criptografy
+namespace Softplan.Commons
 {
   public static class PasswordHasher
   {

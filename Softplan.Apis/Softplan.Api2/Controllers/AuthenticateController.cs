@@ -20,7 +20,9 @@ namespace Softplan.Api2.Controllers
     private readonly ILogger<AuthenticateController> _logger;
     private readonly IAuthenticationService _authenticationService;
     private readonly IValidationErrorService _validationErrorService;
-    public AuthenticateController(ILogger<AuthenticateController> logger, IValidationErrorService validationErrorService, IAuthenticationService authenticationService)
+    public AuthenticateController(ILogger<AuthenticateController> logger, 
+    IValidationErrorService validationErrorService, 
+    IAuthenticationService authenticationService)
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _validationErrorService = validationErrorService ?? throw new ArgumentNullException(nameof(validationErrorService));

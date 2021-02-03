@@ -1,8 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using FluentValidation;
-using Microsoft.Extensions.Options;
-using Softplan.Commons.Settings;
+using Softplan.Commons;
 using Softplan.DTO;
 using Softplan.Validations;
 using Softplan.ViewModels;

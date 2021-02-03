@@ -3,8 +3,7 @@ using System.Linq;
 using FluentValidation;
 using Microsoft.Extensions.Options;
 using NSubstitute;
-using Softplan.Commons.Criptografy;
-using Softplan.Commons.Settings;
+using Softplan.Commons;
 using Softplan.DTO;
 using Softplan.Services;
 using Softplan.ViewModels;
@@ -28,7 +27,13 @@ namespace Softplan.Tests
     {
       //Arrange
       var auth = new AuthenticateDTO() { User = "admin", Password = "admin" };
-      _tokenService.GenerateTokenAuthentication().Returns(new TokenViewModel { Token = "Valid.Bearer.Token", Authenticated = true, Expiration = DateTime.Now.AddHours(3) });
+      _tokenService.GenerateTokenAuthentication()
+                    .Returns(new TokenViewModel
+                    {
+                      Token = "Valid.Bearer.Token",
+                      Authenticated = true,
+                      Expiration = DateTime.Now.AddHours(3)
+                    });
       // Act
       var token = await _sut.AuthenticateAsync(auth);
       //Assert
@@ -39,7 +44,11 @@ namespace Softplan.Tests
     public async void Authenticate_ShouldReturnValidationException_WhenUserIsEmpty()
     {
       // Arrange
-      var auth = new AuthenticateDTO() { User = string.Empty, Password = "admin" };
+      var auth = new AuthenticateDTO()
+      {
+        User = string.Empty,
+        Password = "admin"
+      };
       // Act and Assert
       var result = await Assert.ThrowsAsync<ValidationException>(async () => await _sut.AuthenticateAsync(auth));
       var details = result.Errors
@@ -56,7 +65,11 @@ namespace Softplan.Tests
     public async void Authenticate_ShouldReturnValidationException_WhenPasswordIsEmpty()
     {
       // Arrange
-      var auth = new AuthenticateDTO() { User = "admin", Password = string.Empty };
+      var auth = new AuthenticateDTO()
+      {
+        User = "admin",
+        Password = string.Empty
+      };
       // Act and Assert
       var result = await Assert.ThrowsAsync<ValidationException>(async () => await _sut.AuthenticateAsync(auth));
       var details = result.Errors
@@ -73,7 +86,11 @@ namespace Softplan.Tests
     public async void Authenticate_ShouldReturnAuthenticationException_WhenCredentialsAreInvalids()
     {
       //Arrange
-      var auth = new AuthenticateDTO() { User = "invalid_user", Password = "invalid_password" };
+      var auth = new AuthenticateDTO()
+      {
+        User = "invalid_user",
+        Password = "invalid_password"
+      };
       // Act and Assert
       var result = await Assert.ThrowsAsync<ValidationException>(async () => await _sut.AuthenticateAsync(auth));
       var details = result.Errors

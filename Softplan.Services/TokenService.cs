@@ -4,7 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using Softplan.Commons.Settings;
+using Softplan.Commons;
 using Softplan.ViewModels;
 
 namespace Softplan.Services

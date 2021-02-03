@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using Softplan.Commons.Settings;
+using Softplan.Commons;
 using Softplan.DTO;
 using Softplan.ViewModels;
 

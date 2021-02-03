@@ -20,7 +20,11 @@ namespace Softplan.Tests
     public async void CalculaJuros__ShouldReturnValidationException_WhenMounthsIsNull()
     {
       //Arrange
-      var parms = new CalculaJurosDTO { Meses = null, ValorInicial = 100 };
+      var parms = new CalculaJurosDTO
+      {
+        Meses = null,
+        ValorInicial = 100
+      };
       //Act and Assert
       var result = await Assert.ThrowsAsync<ValidationException>(async () => await _sut.CalculaJuros(parms));
       var details = result.Errors
@@ -54,7 +58,11 @@ namespace Softplan.Tests
     public async void CalculaJuros__ShouldReturnValidationException_WhenMounthsAndInitialValueAreNull()
     {
       //Arrange
-      var parms = new CalculaJurosDTO { Meses = null, ValorInicial = null };
+      var parms = new CalculaJurosDTO
+      {
+        Meses = null,
+        ValorInicial = null
+      };
       //Act and Assert
       var result = await Assert.ThrowsAsync<ValidationException>(async () => await _sut.CalculaJuros(parms));
       var details = result.Errors
@@ -72,7 +80,11 @@ namespace Softplan.Tests
     public async void CalculaJuros__ShouldReturnCorrectValue()
     {
       //Arrange
-      var parms = new CalculaJurosDTO { Meses = 5, ValorInicial = 100 };
+      var parms = new CalculaJurosDTO
+      {
+        Meses = 5,
+        ValorInicial = 100
+      };
       _clientConnectionService.GetTaxaJuros().Returns(new TaxaJurosViewModel() { TaxaJuros = 0.01M });
       //Act 
       var result = await _sut.CalculaJuros(parms);

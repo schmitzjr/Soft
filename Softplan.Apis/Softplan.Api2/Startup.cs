@@ -18,7 +18,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Softplan.Commons.Settings;
+using Softplan.Commons;
 using Softplan.Modules;
 
 namespace Softplan.WebApi2
