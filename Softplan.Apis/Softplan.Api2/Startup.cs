@@ -106,7 +106,6 @@ namespace Softplan.WebApi2
     {
       services.AddTransient<IAuthenticationService, AuthenticationService>();
       services.AddTransient<ICalculaJurosService, CalculaJurosService>();
-      services.AddTransient<ITaxaJurosService, TaxaJurosService>();
       services.AddTransient<ITokenService, TokenService>();
       services.AddTransient<IValidationErrorService, ValidationErrorService>();
       services.AddTransient<IClientConnectionService, ClientConnectionService>();

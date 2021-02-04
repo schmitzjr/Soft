@@ -41,7 +41,7 @@ namespace Softplan.Api2.Controllers
     [Authorize]
     [EnableCors("SoftplanAllowOrigins")]
     [HttpGet]
-    public async Task<IActionResult> TaxaJuros([FromQuery] CalculaJurosDTO calculaJurosDTO)
+    public async Task<IActionResult> CalculaJuros([FromQuery] CalculaJurosDTO calculaJurosDTO)
     {
       try
       {

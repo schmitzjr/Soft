@@ -104,12 +104,9 @@ namespace Softplan.WebApi1
     public void ConfigureContainer(IServiceCollection services)
     {
       services.AddTransient<IAuthenticationService, AuthenticationService>();
-      services.AddTransient<ICalculaJurosService, CalculaJurosService>();
       services.AddTransient<ITaxaJurosService, TaxaJurosService>();
       services.AddTransient<ITokenService, TokenService>();
       services.AddTransient<IValidationErrorService, ValidationErrorService>();
-      services.AddTransient<IClientConnectionService, ClientConnectionService>();
-      services.AddTransient<IShowMeTheCodeService, ShowMeTheCodeService>();
     }
     private static void ConfigureSwagger(IServiceCollection services)
     {
