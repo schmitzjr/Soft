@@ -24,7 +24,7 @@
 <p><strong>Endereço das aplicações.</strong></p>
 <ul>
 <li>Api1: http://localhost:44555</li>
-<li>Api2: http://localhost:33444</li>
+<li>Api2: http://localhost:44333</li>
 </ul>
 
 <h1></h1>
@@ -42,7 +42,7 @@
 <p><strong>Consulte Swagger.</strong></p>
 <ul>
 <li>Api1: http://localhost:44555/index.html</li>
-<li>Api2: http://localhost:33444/index.html</li>
+<li>Api2: http://localhost:44333/index.html</li>
 </ul>
 
 <h1></h1>
@@ -64,13 +64,13 @@
 <ul>
 <li><strong>Acessar APIs em:</strong></li>
 <li>Api1: http://localhost:44555</li>
-<li>Api2: http://localhost:33444</li>
+<li>Api2: http://localhost:44333</li>
 </ul>
 
 <ul>
 <li><strong>Acessar Swagger em:</strong></li>
 <li>Api1: http://localhost:44555</li>
-<li>Api2: http://localhost:33444</li>
+<li>Api2: http://localhost:44333</li>
 </ul>
 
 </div>          
