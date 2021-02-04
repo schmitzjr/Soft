@@ -5,12 +5,24 @@ services:
     container_name: softplan-webapi1-container
     restart: always
     ports: 
-      - "44555:80"
+      - "0.0.0.0:44555:80"
+    networks: 
+      - softplan-network
+    environment:
+      - API_URL=Api:44555
+
   api2:
     build: "./Softplan.Apis/Softplan.Api2"
     container_name: softplan-webapi2-container
     restart: always
     ports: 
-      - "44333:80"
+      - "0.0.0.0:44333:80"
     depends_on: 
       - api1
+    networks: 
+      - softplan-network
+
+networks:
+  softplan-network:
+    external: true
+

@@ -18,6 +18,7 @@ namespace Softplan.Services
     {
       _authSettings = authSettings?.Value ?? throw new ArgumentNullException(nameof(authSettings));
     }
+
     public async Task<TaxaJurosViewModel> GetTaxaJuros()
     {
       var token = await GetToken(new AuthenticateDTO
@@ -28,23 +29,18 @@ namespace Softplan.Services
 
       var taxa = new TaxaJurosViewModel();
 
-      using (var httpClientHandler = new HttpClientHandler())
+      using (var httpClient = new HttpClient())
       {
-        httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-        using (var client = new HttpClient(httpClientHandler))
+        using (var request = new HttpRequestMessage(new HttpMethod("GET"), $"{_authSettings.ClientsConnections.UrlApi1}api/TaxaJuros"))
         {
-          client.BaseAddress = new Uri(_authSettings.ClientsConnections.UrlApi1);
-          client.DefaultRequestHeaders.Accept.Clear();
-          client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+          request.Headers.TryAddWithoutValidation("accept", "application/json");
+          request.Headers.TryAddWithoutValidation("Authorization", $"Bearer {token.Token}");
 
-          client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.Token);
-
-          HttpResponseMessage response = await client.GetAsync("api/TaxaJuros");
-          var result = response.Content.ReadAsStringAsync();
+          var response = await httpClient.SendAsync(request);
 
           if (response.IsSuccessStatusCode)
           {
-            taxa = JsonConvert.DeserializeObject<TaxaJurosViewModel>(result.Result);
+            taxa = JsonConvert.DeserializeObject<TaxaJurosViewModel>(response.Content.ReadAsStringAsync().Result);
           }
         }
       }
@@ -55,30 +51,26 @@ namespace Softplan.Services
     {
       var token = new TokenViewModel();
 
-      using (var httpClientHandler = new HttpClientHandler())
+      using (var httpClient = new HttpClient())
       {
-        httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-        using (var client = new HttpClient(httpClientHandler))
+        using (var request = new HttpRequestMessage(new HttpMethod("POST"), $"{_authSettings.ClientsConnections.UrlApi1}api/Authenticate"))
         {
-          client.BaseAddress = new Uri(_authSettings.ClientsConnections.UrlApi1);
-          client.DefaultRequestHeaders.Accept.Clear();
-          client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+          request.Headers.TryAddWithoutValidation("accept", "application/json");
 
-          var jsonContent = JsonConvert.SerializeObject(authenticateDTO);
-          var contentString = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-          contentString.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+          request.Content = new StringContent(JsonConvert.SerializeObject(authenticateDTO));
+          request.Content.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
 
-          HttpResponseMessage response = await client.PostAsync("api/Authenticate", contentString);
-          var result = response.Content.ReadAsStringAsync();
+          var response = await httpClient.SendAsync(request);
 
           if (response.IsSuccessStatusCode)
           {
-            token = JsonConvert.DeserializeObject<TokenViewModel>(result.Result);
+            token = JsonConvert.DeserializeObject<TokenViewModel>(response.Content.ReadAsStringAsync().Result);
           }
         }
       }
 
       return token;
     }
+
   }
 }
