@@ -24,7 +24,7 @@
 <p><strong>Endereço das aplicações.</strong></p>
 <ul>
 <li>Api1: http://localhost:44555</li>
-<li>Api2: http://localhost:33444</li>
+<li>Api2: http://localhost:44333</li>
 </ul>
 
 <h1></h1>
@@ -42,7 +42,7 @@
 <p><strong>Consulte Swagger.</strong></p>
 <ul>
 <li>Api1: http://localhost:44555/index.html</li>
-<li>Api2: http://localhost:33444/index.html</li>
+<li>Api2: http://localhost:44333/index.html</li>
 </ul>
 
 <h1></h1>
@@ -55,20 +55,22 @@
 </ul>
 
 <ul>
-<li><strong>Na raiz do projeto rodar o arquivo docker-compose.yml com o comando:</strong></li>
+<li>Nas pastas Softplan.Api1 Softplan.Api2 rodar o comando:</li>
+<li><code>dotnet publish -c Release -o publish</code></li>          
+<li>Na raiz do projeto rodar o arquivo docker-compose.yml com o comando:</li>
 <li><code>docker -compose up -d</code></li>
 </ul>
 
 <ul>
 <li><strong>Acessar APIs em:</strong></li>
 <li>Api1: http://localhost:44555</li>
-<li>Api2: http://localhost:33444</li>
+<li>Api2: http://localhost:44333</li>
 </ul>
 
 <ul>
 <li><strong>Acessar Swagger em:</strong></li>
 <li>Api1: http://localhost:44555</li>
-<li>Api2: http://localhost:33444</li>
+<li>Api2: http://localhost:44333</li>
 </ul>
 
 </div>          
