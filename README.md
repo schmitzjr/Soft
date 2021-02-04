@@ -55,6 +55,8 @@
 </ul>
 
 <ul>
+<li>Nas pastas Softplan.Api1 Softplan.Api2 rodar o comando:</li>
+<li><code>dotnet publish -c Release -o publish</code></li>          
 <li><strong>Na raiz do projeto rodar o arquivo docker-compose.yml com o comando:</strong></li>
 <li><code>docker -compose up -d</code></li>
 </ul>
