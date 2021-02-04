@@ -56,7 +56,7 @@
 
 <ul>
 <li><strong>Na raiz do projeto rodar o arquivo docker-compose.yml com o comando:</strong></li>
-<li><code>docker-compose up -d</code></li>
+<li><code>docker -compose up -d</code></li>
 </ul>
 
 <ul>
