@@ -72,8 +72,8 @@
 
 <ul>
 <li><strong>Acessar Swagger em:</strong></li>
-<li>Api1: http://localhost:44555</li>
-<li>Api2: http://localhost:44333</li>
+<li>Api1: http://localhost:44555/index.html</li>
+<li>Api2: http://localhost:44333/index.html</li>
 </ul>
 
 </div>          
