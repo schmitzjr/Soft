@@ -31,7 +31,8 @@ namespace Softplan.Services
 
       using (var httpClient = new HttpClient())
       {
-        using (var request = new HttpRequestMessage(new HttpMethod("GET"), $"{_authSettings.ClientsConnections.UrlApi1}api/TaxaJuros"))
+        var url = _authSettings.ClientsConnections.RunInDocker ? _authSettings.ClientsConnections.UrlApi1Docker : _authSettings.ClientsConnections.UrlApi1; 
+        using (var request = new HttpRequestMessage(new HttpMethod("GET"), $"{url}/api/TaxaJuros"))
         {
           request.Headers.TryAddWithoutValidation("accept", "application/json");
           request.Headers.TryAddWithoutValidation("Authorization", $"Bearer {token.Token}");
@@ -53,7 +54,8 @@ namespace Softplan.Services
 
       using (var httpClient = new HttpClient())
       {
-        using (var request = new HttpRequestMessage(new HttpMethod("POST"), $"{_authSettings.ClientsConnections.UrlApi1}api/Authenticate"))
+        var url = _authSettings.ClientsConnections.RunInDocker ? _authSettings.ClientsConnections.UrlApi1Docker : _authSettings.ClientsConnections.UrlApi1;
+        using (var request = new HttpRequestMessage(new HttpMethod("POST"), $"{url}/api/Authenticate"))
         {
           request.Headers.TryAddWithoutValidation("accept", "application/json");
 

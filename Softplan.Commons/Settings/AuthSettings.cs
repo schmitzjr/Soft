@@ -19,8 +19,10 @@ namespace Softplan.Commons
   {
     public string UrlApi1 { get; set; }
     public string UrlApi2 { get; set; }
+    public string UrlApi1Docker { get; set; }
     public string User { get; set; }
     public string Password { get; set; }
+    public bool RunInDocker { get; set; }
   }
   
 }
